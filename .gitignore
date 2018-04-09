@@ -1,0 +1,12 @@
+.idea/
+.idea/*
+/.idea/*
+*.pyc
+*.swp
+.DS_Store
+/log/*
+/.DS_Store/*
+*.log
+.env
+_static
+_static/*
