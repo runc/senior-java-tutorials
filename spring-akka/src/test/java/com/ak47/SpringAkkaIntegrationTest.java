@@ -22,29 +22,29 @@ import static akka.pattern.Patterns.ask;
 import static com.ak47.akka.SpringExtension.SPRING_EXTENSION_PROVIDER;
 
 @ContextConfiguration(classes = AppConfiguration.class)
-public class SpringAkkaIntegrationTest {
+public class SpringAkkaIntegrationTest extends AbstractJUnit4SpringContextTests{
 
     @Autowired
-    private ActorSystem system;
+    private ActorSystem actorSystem;
 
     @Test
     public void whenCallingGreetingActor_thenActorGreetsTheCaller() throws Exception {
 
-        System.out.println("SPRING_EXTENSION_PROVIDER.get(system).props(\"greetingActor\")" + SPRING_EXTENSION_PROVIDER.get(system));
-        ActorRef greeter = system.actorOf(SPRING_EXTENSION_PROVIDER.get(system).props("greetingActor"), "greeter");
+        System.out.println("SPRING_EXTENSION_PROVIDER.get(system).props(\"greetingActor\")" + actorSystem);
+        ActorRef greeter = actorSystem.actorOf(SPRING_EXTENSION_PROVIDER.get(actorSystem).props("greetingActor"), "greeter");
 
         FiniteDuration duration = FiniteDuration.create(1, TimeUnit.SECONDS);
         Timeout timeout = Timeout.durationToTimeout(duration);
 
         Future<Object> result = ask(greeter, new GreetingActor.Greet("John"), timeout);
 
-        Assert.assertEquals("Hello, John", Await.result(result, duration));
+        Assert.assertEquals("Hello,John", Await.result(result, duration));
     }
 
     @After
     public void tearDown() {
-        system.shutdown();
-        system.awaitTermination();
+        actorSystem.shutdown();
+        actorSystem.awaitTermination();
     }
 
 }

@@ -23,7 +23,7 @@ public class SpringExtension extends AbstractExtensionId<SpringExtension.SpringE
         }
 
         public Props props(String actorBeanName){
-            return Props.create(SpringActorProducer.class);
+            return Props.create(SpringActorProducer.class, applicationContext, actorBeanName);
         }
 
 

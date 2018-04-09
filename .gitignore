@@ -10,3 +10,5 @@
 .env
 _static
 _static/*
+*.class
+*.iml
