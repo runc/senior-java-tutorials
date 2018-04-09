@@ -11,6 +11,9 @@
     <modules>
         <module>spring-akka</module>
         <module>spark-java</module>
+        <module>rule-engines</module>
+        <module>rule-engines</module>
+        <module>active-jdbc</module>
     </modules>
 
 
