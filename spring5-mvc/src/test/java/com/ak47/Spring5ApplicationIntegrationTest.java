@@ -1,5 +1,6 @@
 package com.ak47;
 
+import com.ak47.spring5.x.Spring5Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
