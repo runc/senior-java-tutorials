@@ -14,6 +14,10 @@
         <module>rule-engines</module>
         <module>rule-engines</module>
         <module>active-jdbc</module>
+        <module>akka-streams</module>
+        <module>axon</module>
+        <module>disruptor</module>
+        <module>spring5-mvc</module>
     </modules>
 
 
